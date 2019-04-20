@@ -68,6 +68,10 @@ class DatiTrasmissione implements XmlSerializableInterface
         $this->pecDestinatario = $pecDestinatario;
     }
 
+    public function tipoFattura(){
+        return $this->formatoTrasmissione;
+    }
+    
     /**
      * @param \XMLWriter $writer
      * @return \XMLWriter
