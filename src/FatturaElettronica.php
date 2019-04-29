@@ -15,7 +15,7 @@ use Deved\FatturaElettronica\FatturaElettronica\FatturaElettronicaBody;
 use Deved\FatturaElettronica\FatturaElettronica\FatturaElettronicaHeader;
 use Deved\FatturaElettronica\FatturaElettronica\FatturaElettronicaHeader\CedentePrestatore\IscrizioneRea;
 
-class FatturaElettronica implements XmlSerializableInterface
+class FatturaElettronica implements XmlSerializableInterface, FatturaElettronicaInterface
 {
     /** @var FatturaElettronicaHeader */
     protected $fatturaElettronicaHeader;
@@ -80,6 +80,14 @@ class FatturaElettronica implements XmlSerializableInterface
     }
 
 
+    /**	
+     * @param IscrizioneRea $iscrizioneRea	
+     * @return mixed	
+     */	
+    public function setIscrizioneRea(IscrizioneRea $iscrizioneRea){	
+        $this->fatturaElettronicaHeader->cedentePrestatore->setIscrizioneRea($iscrizioneRea);	
+    }	
+    
     /**
      * Verifica l'xml della fattura
      * @return bool
